@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Version="4.0" Serie="CSE" Folio="70687" Fecha="2026-03-20T17:01:31" Sello="MWSQIJVTCIEKSwFBlpGr7AAWMAq/z3+fn8F9KxXRluJTeF15eEzzmO+pcW9OXdHgU36SBsks+72h1YawuuGBgbFLQsLS+Lvp6L4rPoZVhBwoJXGdoI9ZTUTdD06CWsHHuyhIQonb2u3hYRuHrYg/+me4KtzG4B+y4++2lFMOSJBWcz8QUQNnPz0alv7t65AyCY7lgUv3aLP0HPMnLow9Mz+VT55vgE56J+S6Vb0+eUF6TzEQRa6ovCi1t9IBUEPyU2fZUViklAikmPIdrD5kT3oUzjZfCh6+LjdsxkX4tFY5n4N7+2C/emNCL97SS0/4ok7W8wI2ePMsUBPKxx/6tQ==" FormaPago="28" NoCertificado="00001000000709554543" Certificado="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" CondicionesDePago="CONTADO" SubTotal="3068.96" Moneda="MXN" TipoCambio="1" Total="3560.00" TipoDeComprobante="I" Exportacion="01" MetodoPago="PUE" LugarExpedicion="86190">
+	<cfdi:Emisor Rfc="CCA050811488" Nombre="CALIDAD DE CAMPECHE" RegimenFiscal="601" />
+	<cfdi:Receptor Rfc="CAGB821231Q87" Nombre="BERNARDO CALDERON GERONIMO" DomicilioFiscalReceptor="24348" RegimenFiscalReceptor="612" UsoCFDI="G03" />
+	<cfdi:Conceptos>
+		<cfdi:Concepto ClaveProdServ="78181500" Cantidad="0.90000" ClaveUnidad="E48" Unidad="UNIDAD DE SERVICIO" Descripcion="HILUX DIESEL 2025 60000 KM MA 4 CIL" ValorUnitario="547.70000" Importe="492.93" ObjetoImp="02">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="492.93" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="78.87" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="26101700" Cantidad="1.00000" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="ELEMENT SUB-ASSY, AI" ValorUnitario="520.73000" Importe="520.73" ObjetoImp="02">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="520.73" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="83.32" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="25173900" Cantidad="1.00000" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="ELEMENT, AIR REFINER" ValorUnitario="656.61000" Importe="656.61" ObjetoImp="02">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="656.61" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="105.06" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="25173800" Cantidad="1.00000" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="GASKET" ValorUnitario="24.73000" Importe="24.73" ObjetoImp="02">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="24.73" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="3.96" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="26101700" Cantidad="1.00000" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="FILTER S/A OIL." ValorUnitario="118.68000" Importe="118.68" ObjetoImp="02">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="118.68" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="18.99" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+		<cfdi:Concepto ClaveProdServ="15121500" Cantidad="8.00000" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="MOBIL DELVAC MODERN FP" ValorUnitario="156.91000" Importe="1255.28" ObjetoImp="02">
+			<cfdi:Impuestos>
+				<cfdi:Traslados>
+					<cfdi:Traslado Base="1255.28" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="200.84" />
+				</cfdi:Traslados>
+			</cfdi:Impuestos>
+		</cfdi:Concepto>
+	</cfdi:Conceptos>
+	<cfdi:Impuestos TotalImpuestosTrasladados="491.04">
+		<cfdi:Traslados>
+			<cfdi:Traslado Base="3068.96" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="491.04" />
+		</cfdi:Traslados>
+	</cfdi:Impuestos>
+<cfdi:Complemento><tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" FechaTimbrado="2026-03-20T17:05:45" RfcProvCertif="EDI101020E99" UUID="2d6f5cc4-3234-4f09-82e0-95c6dafc6260" NoCertificadoSAT="00001000000709609813" SelloCFD="MWSQIJVTCIEKSwFBlpGr7AAWMAq/z3+fn8F9KxXRluJTeF15eEzzmO+pcW9OXdHgU36SBsks+72h1YawuuGBgbFLQsLS+Lvp6L4rPoZVhBwoJXGdoI9ZTUTdD06CWsHHuyhIQonb2u3hYRuHrYg/+me4KtzG4B+y4++2lFMOSJBWcz8QUQNnPz0alv7t65AyCY7lgUv3aLP0HPMnLow9Mz+VT55vgE56J+S6Vb0+eUF6TzEQRa6ovCi1t9IBUEPyU2fZUViklAikmPIdrD5kT3oUzjZfCh6+LjdsxkX4tFY5n4N7+2C/emNCL97SS0/4ok7W8wI2ePMsUBPKxx/6tQ==" SelloSAT="CNIXcldC/Ru6JvxvyadMC39EXG+gkoC3xxv3vKKp4lGosbcQmoKW79/cdHLb1+PtDgj+Q3ecryYQMIlxw3Mm8oGBCGG5fffefI7vAcEmZ/Xr9TNzyEe/MQDvbfF6pCJRKe88XtcXx/RU9Pi0REIDIYqJJvVHl/Bc2sga7udy33mwhrXg+iwEFzwjd09Igk8pfXRjx8xqy4dJpgjBTZG3ADpgupVBHIvjD1ckoKHI9QAaog3W2jF0E0lFx4CvQHUZPWAlCFo1I7G7z4+RytPL7xlgpH45iK9JGC9fSUAOeR9fpmqxypVdDgAx8ksvzdI34ERLV/KcLndXiL6N70eGrQ==" Version="1.1" /></cfdi:Complemento></cfdi:Comprobante>

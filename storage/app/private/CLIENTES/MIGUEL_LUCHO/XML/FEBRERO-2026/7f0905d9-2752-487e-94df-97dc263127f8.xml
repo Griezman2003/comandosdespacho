@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante Version="4.0" Serie="UVX" Folio="024431" Fecha="2026-02-18T13:53:45" Sello="be4wTY+1qQeEHUPCTvRdGKALTVrT1Yck1CR7FllD7fq6jqtQJGhQj4KvgKa3JiDSWPL1UodDdtu/RQGeHEXmcrJaR7uhEI57mCOdLFzNlwhVjnLwFPedPyRl1PwYRO8hu2nXFhr8FS81dFhcWgON/WiGy/7h5e5kqTIResZCWvYsmJpm2IqOIYN94kyLuNE5NGEjmInYWJWDWlynWCyU7u2HKHHNAStfqx7SpV1BkevVXaC4mhzE8w1vZlI1wYnTE734D3PlclJo26zBA9jmdoH1iXquzEBPSJhyZCFKWV4nvC0GYCYYfqcG0u3cC/JP0Foi7+x2dHy3qG93t43buA==" FormaPago="03" NoCertificado="00001000000719220762" Certificado="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" CondicionesDePago="CONTADO" SubTotal="7050.12" Total="8178.15" Exportacion="01" MetodoPago="PUE" TipoDeComprobante="I" Moneda="MXN" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" TipoCambio="1" LugarExpedicion="24350" xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:catCFDI="http://www.sat.gob.mx/sitio_internet/cfd/catalogos" xmlns:tdCFDI="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <cfdi:Emisor Rfc="GBO1310311S2" Nombre="GRUPO BOXITO" RegimenFiscal="601" />
+  <cfdi:Receptor Rfc="LUVM6408141Z5" Nombre="MIGUEL ANGEL LUCHO VELAZQUEZ" DomicilioFiscalReceptor="24338" RegimenFiscalReceptor="612" UsoCFDI="G03" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="30181504" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="1-1181242" Descripcion="ONE PIECE PBK88 BELLAGIO BLANCO C/ASIENTO CIERRE LENTO" ValorUnitario="1731.9" Importe="1731.90" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1731.90" Impuesto="002" TipoFactor="Tasa" Importe="277.10" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30181500" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="2-1151246" Descripcion="LAVABO JAZMIN BLANCO 4PULG" ValorUnitario="393.97" Importe="393.97" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="393.97" Impuesto="002" TipoFactor="Tasa" Importe="63.04" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30181500" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="3-1151247" Descripcion="PEDESTAL JAZMIN  BLANCO" ValorUnitario="424.14" Importe="424.14" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="424.14" Impuesto="002" TipoFactor="Tasa" Importe="67.86" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30181700" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="4-1191369" Descripcion="MEZCLADORA 4 P/LAVABO 46CL" ValorUnitario="1547.27" Importe="1547.27" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1547.27" Impuesto="002" TipoFactor="Tasa" Importe="247.56" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31162421" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="5-1661462" Descripcion="CESPOL FLEXIBLE P/LAVABO C/REJILLA CROMADA 9772" ValorUnitario="77.79" Importe="77.79" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="77.79" Impuesto="002" TipoFactor="Tasa" Importe="12.45" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30181700" Cantidad="2.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="6-1641349" Descripcion="LLAVE DE CONTROL ANGULAR MULTIVUELTA 401SC" ValorUnitario="120.93" Importe="241.86" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="241.86" Impuesto="002" TipoFactor="Tasa" Importe="38.70" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="40141720" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="7-1661426" Descripcion="CONECTOR FLEXIBLE LAV/FREG VINILO PREMIUM 40CM FIP VL-A40" ValorUnitario="81.12" Importe="81.12" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="81.12" Impuesto="002" TipoFactor="Tasa" Importe="12.98" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="40174800" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="8-1661142" Descripcion="CUELLO DE CERA C/GUIA EN CAJA PB-104" ValorUnitario="30.11" Importe="30.11" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="30.11" Impuesto="002" TipoFactor="Tasa" Importe="4.82" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="40141720" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="9-1661132" Descripcion="CONECTOR FLEXIBLE YEE LAV/FREG VINILO PREMIUM 55CM A.M VL-T55" ValorUnitario="165.17" Importe="165.17" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="165.17" Impuesto="002" TipoFactor="Tasa" Importe="26.43" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30181500" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="10-1181244" Descripcion="MINGITORIO TERRA 1 BCO 3.8LTS" ValorUnitario="1921.93" Importe="1921.93" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1921.93" Impuesto="002" TipoFactor="Tasa" Importe="307.51" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="40141607" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="11-1641261" Descripcion="VALVULA ESFERA ROSC 19  311831 019" ValorUnitario="168.61" Importe="168.61" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="168.61" Impuesto="002" TipoFactor="Tasa" Importe="26.98" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30181603" Cantidad="1.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="12-1181318" Descripcion="ASIENTO ALARGADO BCO COSMOS 96" ValorUnitario="265.5" Importe="265.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="265.50" Impuesto="002" TipoFactor="Tasa" Importe="42.48" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31162104" Cantidad="3.0" Unidad="PZ" ClaveUnidad="H87" NoIdentificacion="13-1381899" Descripcion="AG 14 8 A   TAQUETE DE PLASTICO 006 (TP14)" ValorUnitario="0.25" Importe="0.75" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="0.75" Impuesto="002" TipoFactor="Tasa" Importe="0.12" TasaOCuota="0.160000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="1128.03">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" Importe="1128.03" Base="7050.12" TipoFactor="Tasa" TasaOCuota="0.160000" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital Version="1.1" UUID="7F0905D9-2752-487E-94DF-97DC263127F8" FechaTimbrado="2026-02-18T14:55:06" RfcProvCertif="INT020124V62" SelloCFD="be4wTY+1qQeEHUPCTvRdGKALTVrT1Yck1CR7FllD7fq6jqtQJGhQj4KvgKa3JiDSWPL1UodDdtu/RQGeHEXmcrJaR7uhEI57mCOdLFzNlwhVjnLwFPedPyRl1PwYRO8hu2nXFhr8FS81dFhcWgON/WiGy/7h5e5kqTIResZCWvYsmJpm2IqOIYN94kyLuNE5NGEjmInYWJWDWlynWCyU7u2HKHHNAStfqx7SpV1BkevVXaC4mhzE8w1vZlI1wYnTE734D3PlclJo26zBA9jmdoH1iXquzEBPSJhyZCFKWV4nvC0GYCYYfqcG0u3cC/JP0Foi7+x2dHy3qG93t43buA==" NoCertificadoSAT="00001000000708361008" SelloSAT="cz2GuVxgtKDCoyJVzH0eBBIFyz1ooXZz/RyI+PBsQFoS9OOfzHacyUwPwQsxzk0EE8wld6saKT0rWXfyg/u9bj0N7W7HL2IkWS3oSD28Uwvta83r2ybhNJOR+9ZfEugruWy2TGIAwaq31s4NfDwpD3bYSySC1tHrQ7lRm8iCFywcagmrthkXx9uGTLB1dcT2eCOhKK44upXYXbw9l+Lgqmw7MXALGJZSwQqnP5sLMy74JSj9bHfMP4pwj4L1Pr45G5awntTNm+PZ+HYZmJDl/kNkzws6NYS6zWjYIQPQ4rXzflttr3T+vzepkVfwpEumcQrtaopWWtH+PkK1L5fMaQ==" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

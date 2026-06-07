@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Version="4.0" Serie="A" Folio="197" Fecha="2026-06-05T15:36:35" Sello="dzZh4JwDnwMBmHT5tor9Fi6oX1yNSiGU8CVQkKvzZ+wnbG6h5rmIs+JBvfiwi0ktNSJ7a+4cZ44G/QQR/B3eSdG5QKaZiPtdTM/iZK0EdhcmHYojGFftIhJFXU+ZPVaZPPZzKw9VJ/yZLX05uy6deb32knbLOBCDuYV089diHI1Pp8Ep5ysGxJOFuaAIBIh3eG9jAvtAMSf9bfqkBlxbK1sM2ivHLiEOpDYGENwHmjbD+Q6cYs5R1RLJOLme1ongsll+J2/bAX4ySYA3bvONbJY9++q9xkBPoPSN0PhriB8srIpH51I2B6CYNoGCySD1Iy0jk5ooqDvh+kC+4x+bPQ==" FormaPago="03" NoCertificado="00001000000721883128" Certificado="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" SubTotal="2520.69" Moneda="MXN" Total="2924.00" TipoDeComprobante="I" Exportacion="01" MetodoPago="PUE" LugarExpedicion="24300" xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <cfdi:Emisor Rfc="SACF9010188T2" Nombre="FRANCISCO JAVIER SALAS CRUZ" RegimenFiscal="612" />
+  <cfdi:Receptor Rfc="CAGY920921CV0" Nombre="YENNIFER CANTERO GOMEZ" DomicilioFiscalReceptor="24348" RegimenFiscalReceptor="612" UsoCFDI="G01" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="EMPAQUE DE MOTOR COMPLETO" ValorUnitario="64.65517" Importe="64.655170" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="64.655170" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="10.344827" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="RETENES DE MOTOR FT150 FT125" ValorUnitario="43.10344" Importe="43.103440" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="43.103440" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="6.896550" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="CILINDRO COMPLETO FT150 DM150" ValorUnitario="581.896551" Importe="581.896551" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="581.896551" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="93.103448" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="EJE PRIMARIO DM150 FT150 FT125" ValorUnitario="530.17241" Importe="530.172410" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="530.172410" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="84.827586" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="EJE PRIMARIO DM150-FT150-FT125" ValorUnitario="376.724" Importe="376.724000" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="376.724000" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="60.275840" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="PASTAS DE CLUTCH FT125-FT150" ValorUnitario="85.344827" Importe="85.344827" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="85.344827" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="13.655172" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="VALVULAS A/E FT150 EX200 RC" ValorUnitario="68.965517" Importe="68.965517" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="68.965517" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="11.034483" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="TAMBOR SELECTOR DE CAMBIOS" ValorUnitario="360.344827" Importe="360.344827" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="360.344827" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="57.655172" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="EJE DE CAMBIOS DM150-FT150" ValorUnitario="103.44827" Importe="103.448270" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="103.448270" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="16.551723" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="15121501" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="ACEITE CASTROL 4T 20W-50" ValorUnitario="189.65517" Importe="189.655170" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="189.655170" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="30.344827" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25101801" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="BUJIA NGK D8 AMARILLA 6058" ValorUnitario="43.103448" Importe="43.103448" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="43.103448" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="6.896552" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="12352310" Cantidad="1.00" ClaveUnidad="H87" Unidad="Pieza" Descripcion="SILICON GRIS NEGRO" ValorUnitario="73.27586" Importe="73.275860" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="73.275860" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="11.724138" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="403.31">
+    <cfdi:Traslados>
+      <cfdi:Traslado Base="2520.69" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="403.31" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" Version="1.1" UUID="EA2DC550-4542-4CC0-9B85-DA87BB5A62EC" FechaTimbrado="2026-06-05T15:37:05" RfcProvCertif="SAT970701NN3" SelloCFD="dzZh4JwDnwMBmHT5tor9Fi6oX1yNSiGU8CVQkKvzZ+wnbG6h5rmIs+JBvfiwi0ktNSJ7a+4cZ44G/QQR/B3eSdG5QKaZiPtdTM/iZK0EdhcmHYojGFftIhJFXU+ZPVaZPPZzKw9VJ/yZLX05uy6deb32knbLOBCDuYV089diHI1Pp8Ep5ysGxJOFuaAIBIh3eG9jAvtAMSf9bfqkBlxbK1sM2ivHLiEOpDYGENwHmjbD+Q6cYs5R1RLJOLme1ongsll+J2/bAX4ySYA3bvONbJY9++q9xkBPoPSN0PhriB8srIpH51I2B6CYNoGCySD1Iy0jk5ooqDvh+kC+4x+bPQ==" NoCertificadoSAT="00001000000705250068" SelloSAT="IwAXpfoj9/fbOETVPIQ0Ugvf0rbZv9HN2l1INMneZcFVrPd6cV2M3lEw1E/LU3JoUkWe/FdkLBAp1Ny7nqHYyDAFnbRl5cbg2k6DMNX5GLG4nBuA2EM7mRJHQQ5aCMiTEZXkIuw5rP23BIZ+4xV5V4xuqtt/uvahwAf44jkX6/9gED2ckeVYch/K3j8Evv+TzZHwa8vCoe+GyWtANZsIjWYQWBgZcs3vwLf11+yPm6pn+VDcfuxahvhCu66H7bVxysqspYrK/UPKBKcj9ZjaokA2wwN21Jlq5NXPme1C1IZSQJlrf0rJTDCG496t0uJYM/8hXMi+hbVKBQAeBFEcwA==" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>
