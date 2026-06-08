@@ -88,7 +88,6 @@ class Bitacora extends Command
                 $uuid = '';
                 $fechaCert = '';
                 
-                // Mantenemos la búsqueda por xpath únicamente para extraer el UUID
                 $timbreNodes = $xml->xpath('//*[local-name()="TimbreFiscalDigital"]');
 
                 if ($timbreNodes && isset($timbreNodes[0])) {
@@ -96,7 +95,6 @@ class Bitacora extends Command
                     $uuid = strtoupper((string)$tfd['UUID']);
                 }
 
-                // Usamos la fecha de emisión extraída para el reporte de Excel
                 if ($fechaEmision) {
                     $fechaCert = date('d/m/Y', strtotime($fechaEmision));
                 }
