@@ -79,7 +79,6 @@ class Bitacora extends Command
                 $efecto = (string)($xml['TipoDeComprobante'] ?? 'INGRESO');
                 $total = (float)($xml['Total'] ?? 0.00);
                 
-                // Corrección aquí: Obtenemos la fecha de emisión directo de la raíz del XML
                 $fechaEmision = (string)($xml['Fecha'] ?? '');
 
                 if ($efecto === 'I') $efecto = 'INGRESO';
