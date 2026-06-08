@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 class Bitacora extends Command
 {
     protected $signature = 'app:bitacora {cliente} {periodo}';
-    protected $description = 'Genera una bitácora de Excel mas facil ssos';
+    protected $description = 'Genera una bitácora de Excel mas facil s';
 
     public function handle()
     {
@@ -55,7 +55,6 @@ class Bitacora extends Command
         $sheetFacturas->setTitle('Facturas');
         $sheetFacturas->setShowGridlines(true);
 
-
         $sheetFacturas->setCellValue('A1', "Facturas De " . ucwords(strtolower($cliente)));
         $sheetFacturas->getStyle('A1')->applyFromArray($styleTitle);
         $sheetFacturas->setCellValue('A2', "CORRESPONDIENTE DEL PERIODO {$periodo}");
@@ -80,6 +79,9 @@ class Bitacora extends Command
                 $efecto = (string)($xml['TipoDeComprobante'] ?? 'INGRESO');
                 $total = (float)($xml['Total'] ?? 0.00);
                 
+                // Corrección aquí: Obtenemos la fecha de emisión directo de la raíz del XML
+                $fechaEmision = (string)($xml['Fecha'] ?? '');
+
                 if ($efecto === 'I') $efecto = 'INGRESO';
                 if ($efecto === 'E') $efecto = 'EGRESO';
                 if ($efecto === 'P') $efecto = 'PAGO';
@@ -87,16 +89,17 @@ class Bitacora extends Command
                 $uuid = '';
                 $fechaCert = '';
                 
+                // Mantenemos la búsqueda por xpath únicamente para extraer el UUID
                 $timbreNodes = $xml->xpath('//*[local-name()="TimbreFiscalDigital"]');
 
                 if ($timbreNodes && isset($timbreNodes[0])) {
                     $tfd = $timbreNodes[0];
                     $uuid = strtoupper((string)$tfd['UUID']);
-                    $fechaCert = (string)$tfd['FechaTimbrado'];
-                    
-                    if ($fechaCert) {
-                        $fechaCert = date('d/m/Y', strtotime($fechaCert));
-                    }
+                }
+
+                // Usamos la fecha de emisión extraída para el reporte de Excel
+                if ($fechaEmision) {
+                    $fechaCert = date('d/m/Y', strtotime($fechaEmision));
                 }
 
                 $sheetFacturas->setCellValue("A{$rowCount}", $idCounter);
@@ -143,7 +146,6 @@ class Bitacora extends Command
         $sheetFichas->getStyle('B4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
         $sheetFichas->getStyle('E4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 
-
         for ($i = 5; $i <= 10; $i++) {
             $sheetFichas->setCellValue("A{$i}", $i - 4);
             $sheetFichas->getStyle("A{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -161,7 +163,6 @@ class Bitacora extends Command
         $sheetFichas->getStyle("D11")->getFont()->setBold(true);
         $sheetFichas->getStyle("D11")->getNumberFormat()->setFormatCode('$#,##0.00');
         $sheetFichas->getStyle("D11")->applyFromArray($styleTotalBorder);
-
 
         foreach ([$sheetFacturas, $sheetFichas] as $sheet) {
             foreach ($sheet->getColumnIterator() as $column) {
