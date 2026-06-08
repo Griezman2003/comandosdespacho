@@ -430,10 +430,10 @@ class Xml extends Command
     private function crearEstructura(string $relPath): void
     {
         $carpetas = [
-            "{$relPath}/credenciales",
-            "{$relPath}/xml",
-            "{$relPath}/pdf",
-            "{$relPath}/solicitudes",
+            "{$relPath}/CREDENCIALES",
+            "{$relPath}/XML",
+            "{$relPath}/PDF",
+            "{$relPath}/SOLICITUDES",
         ];
 
         foreach ($carpetas as $carpeta) {
