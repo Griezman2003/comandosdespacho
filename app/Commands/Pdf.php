@@ -116,23 +116,22 @@ class Pdf extends Command
                     if (empty(trim($xmlContenido))) {
                         throw new Exception("El archivo XML está vacío.");
                     }
-                    
 
                     $xmlLimpio = Cleaner::staticClean($xmlContenido);
                     $comprobante = XmlNodeUtils::nodeFromXmlString($xmlLimpio);
-                    $cfdiData = (new CfdiDataBuilder())->build($comprobante);
 
+                    $fechaEmisionReal = $comprobante['Fecha'] ?? '';
 
-                    $uuid = '';
                     $timbre = $comprobante->searchNode('cfdi:Complemento', 'tfd:TimbreFiscalDigital');
-                    if ($timbre) {
-                        $uuid = strtolower(trim($timbre['UUID']));
+                    if ($timbre && !empty($fechaEmisionReal)) {
+                        // Forzamos temporalmente en memoria la FechaTimbrado para que coincida con tu Fecha de emisión
+                        $timbre->addAttributes(['FechaTimbrado' => $fechaEmisionReal]);
                     }
 
+                    $cfdiData = (new CfdiDataBuilder())->build($comprobante);
 
-                    $nombrePdf = !empty($uuid) ? $uuid : pathinfo($xmlFile, PATHINFO_FILENAME);
+                    $nombrePdf = pathinfo($xmlFile, PATHINFO_FILENAME);
                     $pdfFile = rtrim($pdfPath, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $nombrePdf . '.pdf';
-
 
                     $converter->createPdfAs($cfdiData, $pdfFile);
                     $exitosos++;
