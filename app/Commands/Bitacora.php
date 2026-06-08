@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 class Bitacora extends Command
 {
     protected $signature = 'app:bitacora {cliente} {periodo}';
-    protected $description = 'Genera una bitácora de Excel con pestañas de Facturas (desde XML) y Fichas';
+    protected $description = 'Genera una bitácora de Excel mas facil ssos';
 
     public function handle()
     {
