@@ -5,6 +5,7 @@ namespace App\Commands;
 use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use PhpOffice\PhpSpreadsheet\Style\Border;
@@ -34,6 +35,30 @@ class Bitacora extends Command
         if (!file_exists($fullPath)) {
             $this->error("La ruta no existe: {$fullPath}");
             return 1;
+        }
+
+        $outputFileName = "Bitacora_{$cliente}_{$periodo}.xlsx";
+        $outputDir = storage_path("app/private/CLIENTES/{$cliente}");
+        $outputPath = "{$outputDir}/{$outputFileName}";
+
+        // --- SISTEMA DE PROTECCIÓN Y LECTURA DE DATOS EXISTENTES ---
+        $existingFichasData = null;
+        $excelExiste = file_exists($outputPath);
+
+        if ($excelExiste) {
+            try {
+                $this->info("Detectado archivo Excel existente. Leyendo pestaña 'Fichas' para no perder tus datos...");
+                $existingSpreadsheet = IOFactory::load($outputPath);
+                
+                if ($existingSpreadsheet->sheetNameExists('Fichas')) {
+                    $sheetFichasOld = $existingSpreadsheet->getSheetByName('Fichas');
+                    $existingFichasData = $sheetFichasOld->toArray(null, true, true, true);
+                }
+                $existingSpreadsheet->disconnectWorksheets();
+                unset($existingSpreadsheet);
+            } catch (\Exception $e) {
+                $this->warn("Se detectó un Excel previo pero no se pudo leer (quizás está abierto). Se creará uno nuevo. Error: " . $e->getMessage());
+            }
         }
 
         $this->info("Leyendo archivos XML desde: {$relativeXmlPath}...");
@@ -128,39 +153,72 @@ class Bitacora extends Command
         $sheetFacturas->getStyle("E{$rowCount}")->getNumberFormat()->setFormatCode('$#,##0.00');
         $sheetFacturas->getStyle("E{$rowCount}")->applyFromArray($styleTotalBorder);
 
+        // --- PESTAÑA: FICHAS (RECONSTRUCCIÓN U OPTIMIZACIÓN inteligente) ---
         $sheetFichas = $spreadsheet->createSheet();
         $sheetFichas->setTitle('Fichas');
         $sheetFichas->setShowGridlines(true);
 
-        $sheetFichas->setCellValue('A1', "Fichas de Transferencia - " . ucwords(strtolower($cliente)));
-        $sheetFichas->getStyle('A1')->applyFromArray($styleTitle);
-        $sheetFichas->setCellValue('A2', "CORRESPONDIENTE DEL PERIODO {$periodo}");
-        $sheetFichas->getStyle('A2')->applyFromArray($styleSubtitle);
-
-        $headersFichas = ['ID', 'PROVEEDORES', 'FECHA', 'MONTO', 'FOLIO FISCAL'];
-        $sheetFichas->fromArray($headersFichas, null, 'A4');
-        $sheetFichas->getStyle('A4:E4')->applyFromArray($styleHeader);
-        $sheetFichas->getStyle('B4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
-        $sheetFichas->getStyle('E4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
-
-        for ($i = 5; $i <= 10; $i++) {
-            $sheetFichas->setCellValue("A{$i}", $i - 4);
-            $sheetFichas->getStyle("A{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-            $sheetFichas->getStyle("C{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-            $sheetFichas->getStyle("D{$i}")->getNumberFormat()->setFormatCode('$#,##0.00');
-            $sheetFichas->getStyle("A{$i}:E{$i}")->applyFromArray($styleBorder);
-            if ($i % 2 == 0) {
-                $sheetFichas->getStyle("A{$i}:E{$i}")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setRGB('F7F9F5');
+        if ($existingFichasData) {
+            foreach ($existingFichasData as $rowIdx => $columns) {
+                foreach ($columns as $colLetter => $value) {
+                    $sheetFichas->setCellValue($colLetter . $rowIdx, $value);
+                }
             }
+            
+            $sheetFichas->getStyle('A4:E4')->applyFromArray($styleHeader);
+            $sheetFichas->getStyle('B4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+            $sheetFichas->getStyle('E4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+            
+            $maxRow = count($existingFichasData);
+            if ($maxRow >= 5) {
+                for ($i = 5; $i < $maxRow; $i++) {
+                    $sheetFichas->getStyle("A{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+                    $sheetFichas->getStyle("C{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+                    $sheetFichas->getStyle("D{$i}")->getNumberFormat()->setFormatCode('$#,##0.00');
+                    $sheetFichas->getStyle("A{$i}:E{$i}")->applyFromArray($styleBorder);
+                    if ($i % 2 == 0) {
+                        $sheetFichas->getStyle("A{$i}:E{$i}")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setRGB('F7F9F5');
+                    }
+                }
+
+                $sheetFichas->setCellValue("C{$maxRow}", 'Total');
+                $sheetFichas->getStyle("C{$maxRow}")->getFont()->setBold(true);
+                $sheetFichas->setCellValue("D{$maxRow}", "=SUM(D5:D" . ($maxRow - 1) . ")");
+                $sheetFichas->getStyle("D{$maxRow}")->getFont()->setBold(true);
+                $sheetFichas->getStyle("D{$maxRow}")->getNumberFormat()->setFormatCode('$#,##0.00');
+                $sheetFichas->getStyle("D{$maxRow}")->applyFromArray($styleTotalBorder);
+            }
+        } else {
+
+            $sheetFichas->setCellValue('A1', "Fichas de Transferencia - " . ucwords(strtolower($cliente)));
+            $sheetFichas->getStyle('A1')->applyFromArray($styleTitle);
+            $sheetFichas->setCellValue('A2', "CORRESPONDIENTE DEL PERIODO {$periodo}");
+            $sheetFichas->getStyle('A2')->applyFromArray($styleSubtitle);
+
+            $headersFichas = ['ID', 'PROVEEDORES', 'FECHA', 'MONTO', 'FOLIO FISCAL'];
+            $sheetFichas->fromArray($headersFichas, null, 'A4');
+            $sheetFichas->getStyle('A4:E4')->applyFromArray($styleHeader);
+            $sheetFichas->getStyle('B4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+            $sheetFichas->getStyle('E4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
+
+            for ($i = 5; $i <= 10; $i++) {
+                $sheetFichas->setCellValue("A{$i}", $i - 4);
+                $sheetFichas->getStyle("A{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+                $sheetFichas->getStyle("C{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
+                $sheetFichas->getStyle("D{$i}")->getNumberFormat()->setFormatCode('$#,##0.00');
+                $sheetFichas->getStyle("A{$i}:E{$i}")->applyFromArray($styleBorder);
+                if ($i % 2 == 0) {
+                    $sheetFichas->getStyle("A{$i}:E{$i}")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setRGB('F7F9F5');
+                }
+            }
+
+            $sheetFichas->setCellValue("C11", 'Total');
+            $sheetFichas->getStyle("C11")->getFont()->setBold(true);
+            $sheetFichas->setCellValue("D11", "=SUM(D5:D10)");
+            $sheetFichas->getStyle("D11")->getFont()->setBold(true);
+            $sheetFichas->getStyle("D11")->getNumberFormat()->setFormatCode('$#,##0.00');
+            $sheetFichas->getStyle("D11")->applyFromArray($styleTotalBorder);
         }
-
-        $sheetFichas->setCellValue("C11", 'Total');
-        $sheetFichas->getStyle("C11")->getFont()->setBold(true);
-        $sheetFichas->setCellValue("D11", "=SUM(D5:D10)");
-        $sheetFichas->getStyle("D11")->getFont()->setBold(true);
-        $sheetFichas->getStyle("D11")->getNumberFormat()->setFormatCode('$#,##0.00');
-        $sheetFichas->getStyle("D11")->applyFromArray($styleTotalBorder);
-
         foreach ([$sheetFacturas, $sheetFichas] as $sheet) {
             foreach ($sheet->getColumnIterator() as $column) {
                 $colLetter = $column->getColumnIndex();
@@ -169,14 +227,10 @@ class Bitacora extends Command
             $sheet->calculateColumnWidths();
         }
 
-        $outputFileName = "Bitacora_{$cliente}_{$periodo}.xlsx";
-        $outputDir = storage_path("app/private/CLIENTES/{$cliente}");
-        $outputPath = "{$outputDir}/{$outputFileName}";
-
         $writer = new Xlsx($spreadsheet);
         $writer->save($outputPath);
 
-        $this->info("¡Bitácora generada con éxito de manera ordenada!");
+        $this->info("¡Bitácora actualizada con éxito!");
         $this->line("Guardada en: <comment>{$outputPath}</comment>");
         return 0;
     }
