@@ -14,13 +14,19 @@ use Illuminate\Support\Facades\Storage;
 
 class Bitacora extends Command
 {
-    protected $signature = 'app:bitacora {cliente : Nombre de la carpeta del cliente} {periodo : Carpeta mensual (ej: MAYO-2026)}';
+    protected $signature = 'app:bitacora {cliente} {periodo}';
     protected $description = 'Genera una bitácora de Excel con pestañas de Facturas (desde XML) y Fichas';
 
     public function handle()
     {
         $cliente = strtoupper($this->argument('cliente'));
-        $periodo = strtoupper($this->argument('periodo'));
+        $periodoInput = $this->argument('periodo');
+
+        if (!str_contains($periodoInput, '-')) {
+            $periodoInput .= '-' . date('Y');
+        }
+        
+        $periodo = strtoupper($periodoInput);
 
         $relativeXmlPath = "private/CLIENTES/{$cliente}/XML/{$periodo}";
         $fullPath = storage_path("app/{$relativeXmlPath}");
@@ -74,43 +80,36 @@ class Bitacora extends Command
                 $efecto = (string)($xml['TipoDeComprobante'] ?? 'INGRESO');
                 $total = (float)($xml['Total'] ?? 0.00);
                 
-                // Mapear nombres comunes si vienen abreviados en el XML
                 if ($efecto === 'I') $efecto = 'INGRESO';
                 if ($efecto === 'E') $efecto = 'EGRESO';
                 if ($efecto === 'P') $efecto = 'PAGO';
 
-                // Datos del nodo <tfd:TimbreFiscalDigital>
                 $uuid = '';
                 $fechaCert = '';
-                if (isset($namespaces['tfd'])) {
-                    $children = $xml->children($namespaces['cfdi'] ?? null);
-                    if (isset($children->Complemento)) {
-                        $tfd = $children->Complemento->children($namespaces['tfd'])->TimbreFiscalDigital;
-                        if (isset($tfd)) {
-                            $uuid = strtoupper((string)$tfd['UUID']);
-                            $fechaCert = (string)$tfd['Fecha'];
-                            // Formatear fecha a DD/MM/YYYY si viene en formato ISO
-                            if ($fechaCert) {
-                                $fechaCert = date('d/m/Y', strtotime($fechaCert));
-                            }
-                        }
+                
+                $timbreNodes = $xml->xpath('//*[local-name()="TimbreFiscalDigital"]');
+
+                if ($timbreNodes && isset($timbreNodes[0])) {
+                    $tfd = $timbreNodes[0];
+                    $uuid = strtoupper((string)$tfd['UUID']);
+                    $fechaCert = (string)$tfd['FechaTimbrado'];
+                    
+                    if ($fechaCert) {
+                        $fechaCert = date('d/m/Y', strtotime($fechaCert));
                     }
                 }
 
-                // Escribir fila en Excel
                 $sheetFacturas->setCellValue("A{$rowCount}", $idCounter);
                 $sheetFacturas->setCellValue("B{$rowCount}", $uuid);
                 $sheetFacturas->setCellValue("C{$rowCount}", $fechaCert);
                 $sheetFacturas->setCellValue("D{$rowCount}", $efecto);
                 $sheetFacturas->setCellValue("E{$rowCount}", $total);
 
-                // Aplicar Formatos de celda particulares
                 $sheetFacturas->getStyle("A{$rowCount}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
                 $sheetFacturas->getStyle("C{$rowCount}:D{$rowCount}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
                 $sheetFacturas->getStyle("E{$rowCount}")->getNumberFormat()->setFormatCode('$#,##0.00');
                 $sheetFacturas->getStyle("A{$rowCount}:E{$rowCount}")->applyFromArray($styleBorder);
 
-                // Zebra striping (Fila gris muy clara intercalada)
                 if ($rowCount % 2 == 0) {
                     $sheetFacturas->getStyle("A{$rowCount}:E{$rowCount}")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setRGB('F7F9F5');
                 }
@@ -122,7 +121,6 @@ class Bitacora extends Command
             }
         }
 
-        // Fila de Totales de Facturas
         $sheetFacturas->setCellValue("D{$rowCount}", 'Total');
         $sheetFacturas->getStyle("D{$rowCount}")->getFont()->setBold(true);
         $sheetFacturas->setCellValue("E{$rowCount}", "=SUM(E5:E" . ($rowCount - 1) . ")");
@@ -130,8 +128,6 @@ class Bitacora extends Command
         $sheetFacturas->getStyle("E{$rowCount}")->getNumberFormat()->setFormatCode('$#,##0.00');
         $sheetFacturas->getStyle("E{$rowCount}")->applyFromArray($styleTotalBorder);
 
-
-        // --- HOJA 2: FICHAS (Para llenado manual) ---
         $sheetFichas = $spreadsheet->createSheet();
         $sheetFichas->setTitle('Fichas');
         $sheetFichas->setShowGridlines(true);
@@ -147,7 +143,7 @@ class Bitacora extends Command
         $sheetFichas->getStyle('B4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
         $sheetFichas->getStyle('E4')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_LEFT);
 
-        // Dejamos 6 filas estructuradas con formato para tu llenado manual
+
         for ($i = 5; $i <= 10; $i++) {
             $sheetFichas->setCellValue("A{$i}", $i - 4);
             $sheetFichas->getStyle("A{$i}")->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
@@ -158,8 +154,7 @@ class Bitacora extends Command
                 $sheetFichas->getStyle("A{$i}:E{$i}")->getFill()->setFillType(Fill::FILL_SOLID)->getStartColor()->setRGB('F7F9F5');
             }
         }
-        
-        // Fila de Totales de Fichas
+
         $sheetFichas->setCellValue("C11", 'Total');
         $sheetFichas->getStyle("C11")->getFont()->setBold(true);
         $sheetFichas->setCellValue("D11", "=SUM(D5:D10)");
@@ -168,17 +163,14 @@ class Bitacora extends Command
         $sheetFichas->getStyle("D11")->applyFromArray($styleTotalBorder);
 
 
-        // Auto-ajustar el ancho de las columnas en ambas hojas (Corregido y optimizado)
         foreach ([$sheetFacturas, $sheetFichas] as $sheet) {
             foreach ($sheet->getColumnIterator() as $column) {
                 $colLetter = $column->getColumnIndex();
                 $sheet->getColumnDimension($colLetter)->setAutoSize(true);
             }
-            // Forzar el recálculo interno de dimensiones para evitar cortes de texto
             $sheet->calculateColumnWidths();
         }
 
-        // Guardar el archivo final en la carpeta del cliente
         $outputFileName = "Bitacora_{$cliente}_{$periodo}.xlsx";
         $outputDir = storage_path("app/private/CLIENTES/{$cliente}");
         $outputPath = "{$outputDir}/{$outputFileName}";
